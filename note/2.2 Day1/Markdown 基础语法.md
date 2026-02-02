@@ -87,7 +87,7 @@ def hello_world():
 
 ### 9.特殊图表的绘制
 
-在 Markdown 中生成流程图、饼图等图表，通常是使用 **Mermaid** 语法[点击跳转](D:\Typora\note\Mermaid 语法解析.md)
+在 Markdown 中生成流程图、饼图等图表，通常是使用 **Mermaid** 语法[点击跳转](https://github.com/HankLi666/QG/blob/master/note/2.2%20Day1/Mermaid%20%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90.md)
 
 ### 10.小贴士
 
