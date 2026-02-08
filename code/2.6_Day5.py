@@ -52,3 +52,5 @@ shapes = [Circle(3), Rectangle(4, 5)]
 print(f"总图形数量：{shapes[0].count}")
 for s in shapes:
     print(f"面积: {s.get_area():.2f}")
+
+
