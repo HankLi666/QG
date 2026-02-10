@@ -22,13 +22,22 @@ NumPy 的核心是 **ndarray**（可理解为数组），支持**向量化操作
 # 从列表创建
 arr = np.array([1, 2, 3, 4]) 
 
-# 用arange创建等差数列（range）
-arr = np.range(12)  # 生成一个从0开始，到 12-1 结束，步长为1的一维数组
-arr = np.arange(0, 10, 2)  # 类似 for(int i=0; i<10; i+=2)
-
 # 创建随机数矩阵
 rand_arr = np.random.rand(2, 3)
 ```
+#### 用arange创建等差数列
+与range函数类似
+```python
+arr = np.range(12)  # 生成一个从0开始，到 12-1 结束，步长为1的一维数组
+arr = np.arange(0, 10, 2)  # 类似 for(int i=0; i<10; i+=2)
+```
+#### 用 linspace 创建等分数列
+**指定点数**，常用于绘图 X 轴
+```python
+np.linspace(start, stop, num)
+x = np.linspace(0, 2 * np.pi, 100) # 在 0 到 2π 之间生成 100 个等间距的点
+```
+
 ### 特殊矩阵构建
 
 除了 `np.array()`，还有这些快捷函数：
