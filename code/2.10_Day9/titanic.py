@@ -10,6 +10,9 @@ data = pd.read_csv('2.10_Day9/train.csv')
 
 # 数据处理
 data['Age'] = data['Age'].fillna(data['Age'].mean()) # 将Age空值填为平均值
+data['Embarked'] = data['Embarked'].fillna('S') # 将Embarked空值填为最多的S
+
+# 将字符填为数据，用于以后可能的深度学习
 # print(data['Sex'].unique())
 # data.loc[data['Sex'] == 'male', 'Sex'] = 1
 # data.loc[data['Sex'] == 'female', 'Sex'] = 0
@@ -18,12 +21,11 @@ data['Age'] = data['Age'].fillna(data['Age'].mean()) # 将Age空值填为平均�
 # data.loc[data['Embarked'] == 'S', 'Embarked'] = 0
 # data.loc[data['Embarked'] == 'C', 'Embarked'] = 1
 # data.loc[data['Embarked'] == 'Q', 'Embarked'] = 2
-data['Embarked'] = data['Embarked'].fillna('S')
 # print(data.head())
 
-# 设置中文字体
-plt.rcParams['font.sans-serif'] = ['SimHei'] 
-plt.rcParams['axes.unicode_minus'] = False
+# # 设置中文字体
+# plt.rcParams['font.sans-serif'] = ['SimHei'] 
+# plt.rcParams['axes.unicode_minus'] = False
 
 # # 总体生还率
 # n = data['Survived'].value_counts()
@@ -123,58 +125,58 @@ plt.rcParams['axes.unicode_minus'] = False
 # axes3.set_title('三等舱生还率')
 # plt.show()
 
-# 登入港口与生还率
-embarked_count =  data.groupby(by='Embarked')['Survived'].value_counts()
-# print(embarked_count)  
+# # 登入港口与生还率
+# embarked_count =  data.groupby(by='Embarked')['Survived'].value_counts()
+# # print(embarked_count)  
 
-# Southampton
-axes1 = plt.subplot(1, 3, 1)
-wedges, texts, autotexts = axes1.pie(embarked_count.loc['S'],
-                                     autopct='%.2f%%',
-                                     pctdistance=0.5, 
-                                     shadow=True, 
-                                     explode=[0,0.1], 
-                                     textprops=dict(size=10), 
-                                     colors=['#4682B4', '#87CEEB'], 
-                                     startangle=90)
+# # Southampton
+# axes1 = plt.subplot(1, 3, 1)
+# wedges, texts, autotexts = axes1.pie(embarked_count.loc['S'],
+#                                      autopct='%.2f%%',
+#                                      pctdistance=0.5, 
+#                                      shadow=True, 
+#                                      explode=[0,0.1], 
+#                                      textprops=dict(size=10), 
+#                                      colors=['#4682B4', '#87CEEB'], 
+#                                      startangle=90)
 
-# 添加图例
-axes1.legend(wedges, ['死亡', '存活'], title="状态", loc="upper center", 
-             bbox_to_anchor=(0.5, -0.05))
-axes1.set_title('S港登入生还率')
+# # 添加图例
+# axes1.legend(wedges, ['死亡', '存活'], title="状态", loc="upper center", 
+#              bbox_to_anchor=(0.5, -0.05))
+# axes1.set_title('S港登入生还率')
 
-# Cherbourg
-axes2 = plt.subplot(1, 3, 2)
-wedges, texts, autotexts = axes2.pie(embarked_count.loc['C'][::-1],
-                                     autopct='%.2f%%',
-                                     pctdistance=0.5, 
-                                     shadow=True, 
-                                     explode=[0,0.1], 
-                                     textprops=dict(size=10), 
-                                     colors=['#2A9D8F', '#E9C46A'], 
-                                     startangle=90)
+# # Cherbourg
+# axes2 = plt.subplot(1, 3, 2)
+# wedges, texts, autotexts = axes2.pie(embarked_count.loc['C'][::-1],
+#                                      autopct='%.2f%%',
+#                                      pctdistance=0.5, 
+#                                      shadow=True, 
+#                                      explode=[0,0.1], 
+#                                      textprops=dict(size=10), 
+#                                      colors=['#2A9D8F', '#E9C46A'], 
+#                                      startangle=90)
 
-# 添加图例
-axes2.legend(wedges, ['死亡', '存活'], title="状态", loc="upper center", 
-             bbox_to_anchor=(0.5, -0.05))
-axes2.set_title('C港登入生还率')
+# # 添加图例
+# axes2.legend(wedges, ['死亡', '存活'], title="状态", loc="upper center", 
+#              bbox_to_anchor=(0.5, -0.05))
+# axes2.set_title('C港登入生还率')
 
-# Queenstown
-axes3 = plt.subplot(1, 3, 3)
-wedges, texts, autotexts = axes3.pie(embarked_count.loc['Q'],
-                                     autopct='%.2f%%',
-                                     pctdistance=0.5, 
-                                     shadow=True, 
-                                     explode=[0,0.1], 
-                                     textprops=dict(size=10), 
-                                     colors=['#9400D3', '#FFB6C1'], 
-                                     startangle=90)
+# # Queenstown
+# axes3 = plt.subplot(1, 3, 3)
+# wedges, texts, autotexts = axes3.pie(embarked_count.loc['Q'],
+#                                      autopct='%.2f%%',
+#                                      pctdistance=0.5, 
+#                                      shadow=True, 
+#                                      explode=[0,0.1], 
+#                                      textprops=dict(size=10), 
+#                                      colors=['#9400D3', '#FFB6C1'], 
+#                                      startangle=90)
 
-# 添加图例
-axes3.legend(wedges, ['死亡', '存活'], title="状态", loc="upper center", 
-             bbox_to_anchor=(0.5, -0.05))
-axes3.set_title('Q港登入生还率')
-plt.show()
+# # 添加图例
+# axes3.legend(wedges, ['死亡', '存活'], title="状态", loc="upper center", 
+#              bbox_to_anchor=(0.5, -0.05))
+# axes3.set_title('Q港登入生还率')
+# plt.show()
 
 # # 年龄区间与生还率
 
